@@ -10,7 +10,7 @@ export interface MarkdownHandlerProps {
 export function MarkdownHandler({ issueContent }: MarkdownHandlerProps) {
   return (
     <Markdown
-      className="prose max-w-none text-base-text dark:prose-invert"
+      className="prose max-w-none text-base-text"
       components={{
         code(props) {
           const { children, className, ...rest } = props
