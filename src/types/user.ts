@@ -5,4 +5,5 @@ export interface UserData {
   bio: string
   avatar_url: string
   name: string
+  location: string
 }

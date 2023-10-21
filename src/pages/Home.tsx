@@ -16,7 +16,7 @@ export function Home() {
         onSearchTerm={handleSearchTermChange}
       />
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="flex flex-col gap-8 p-4 lg:grid lg:grid-cols-2 lg:p-0 ">
         {issues && issues.map((issue) => <Post key={issue.id} issue={issue} />)}
       </div>
     </div>

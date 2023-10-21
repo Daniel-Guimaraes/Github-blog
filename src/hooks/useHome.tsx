@@ -1,20 +1,10 @@
 import { useCallback, useEffect, useState } from 'react'
 import { api } from '../services/api'
 import { UserData } from '../types/user'
-
-export interface Issue {
-  id: number
-  body: string
-  comments: string
-  created_at: string
-  url: string
-  number: number
-  title: string
-  total_count: number
-}
+import { Issue } from '../types/issue'
 
 export function useHome() {
-  const [userData, setUserData] = useState<UserData>()
+  const [userData, setUserData] = useState<UserData>({} as UserData)
   const [issues, setIssues] = useState<Issue[]>([])
   const [searchTerm, setSearchTerm] = useState('')
 
@@ -34,6 +24,12 @@ export function useHome() {
     const delayLoadIssues = setTimeout(async () => {
       const issues = await api.get(
         `/search/issues?q=${searchTerm}%20repo:Daniel-Guimaraes/Github-blog`,
+        {
+          params: {
+            sort: 'created',
+            direction: 'asc',
+          },
+        },
       )
       setIssues(issues.data.items)
     }, 500)

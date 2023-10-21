@@ -6,13 +6,15 @@ interface SearchProps {
 
 export function Search({ searchTerm, onSearchTerm, issuesCount }: SearchProps) {
   return (
-    <div className="mb-8 mt-searchContainer">
+    <div className="mb-8 mt-searchContainer p-4 lg:p-0">
       <div className="mb-4 flex justify-between">
         <span className="text-lg font-bold text-base-subtitle">
           Publicações
         </span>
 
-        <span className="text-sm text-base-span">{issuesCount}Publicações</span>
+        <span className="text-sm text-base-span">
+          {issuesCount} publicações
+        </span>
       </div>
       <input
         type="text"
